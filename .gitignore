@@ -230,3 +230,8 @@ GitHub.sublime-settings
 .history
 
 backend/.idea/
+
+
+
+node_modules
+frontend/node_modules/

@@ -7,12 +7,12 @@ from laundry_management.serializers import LaundryEventClothListSerializer, AddL
 class LaundryEventViewSet(viewsets.ModelViewSet):
     queryset = LaundryEvent.objects.all()
     serializer_class = LaundryEventSerializer
-    http_method_names = ["GET", "POST", "PATCH", "PUT"]
+    http_method_names = ["get", "post", "patch", "put"]
 
     @decorators.action(methods=["GET", "POST"], detail=True)
     def clothes(self, request, *args, **kwargs):
         event: LaundryEvent = self.get_object()
-        if request.method == "GET":
+        if request.method.upper() == "GET":
             laundry_clothes = event.laundry_event_clothes.all()
             return response.Response(
                 data=LaundryEventClothListSerializer(instance=laundry_clothes, many=True).data,

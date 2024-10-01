@@ -17,6 +17,7 @@ class LaundryCloth(BaseModel):
     description = models.TextField(null=True, blank=True)
     is_ready = models.BooleanField(default=False)
     image = models.ImageField(upload_to="media/laundry_clothes/")
+    ready_on = models.DateTimeField(null=True)
 
     class Meta:
         verbose_name_plural = "Laundry Clothes"
